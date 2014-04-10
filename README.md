@@ -8,11 +8,11 @@ MyEntry is a generic type with type parameters for the key and the value: `MyEnt
 2. A single hash bucket is a list of MyEntry objects: `List<MyEntry<K, V>>`
 3. The type for the array of hash buckets is a simple extension of the previous data structure: `List<MyEntry<K, V>> []`
 
-You should complete this lab in parts:
+You should complete this lab in three parts:
 
 1. Complete the put() method:
-    * Remember that the key may already exist!
-    * Remember that every Java Object has a hashCode() and equals() method.
+    * Hint: the key may already exist!
+    * Hint: every Java Object has a hashCode() and equals() method.
     * After you complete the put() method, the first unit test in TestMyMap should pass.
 2. Complete the get() method.   The first two unit tests in TestMyMap should pass.
 3. Complete the expandIfNecessary() method.
