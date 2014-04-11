@@ -2,6 +2,7 @@ package edu.macalester.comp124.mymap;
 
 import java.util.LinkedList;
 import java.util.List;
+import edu.macalester.comp124.mymap.MyEntry;
 
 /**
  * A simple implementation of a hashtable.
@@ -45,7 +46,25 @@ public class MyMap <K, V> {
 	 */
 	public void put(K key, V value) {
 		expandIfNecessary();
-		
+
+        boolean contains = true;
+        MyEntry newEntry = new MyEntry(key, value);
+        int hash = key.hashCode();
+
+        int index = hash % buckets.length;
+        for (MyEntry me : buckets[index]) {
+            if (me.getKey().equals(newEntry.getKey()) ) {
+                me.setValue(newEntry.getValue());
+                return;
+            }
+        }
+        buckets[index].add(newEntry);
+        numEntries++;
+
+        while (contains) {
+            bucket.add(newEntry);
+        }
+
 		// TODO: Store the key.
 	}
 	
